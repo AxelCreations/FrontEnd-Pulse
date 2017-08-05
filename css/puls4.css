@@ -5,6 +5,9 @@
   font-weight: normal;
   font-style: normal;
 }
+html::-webkit-scrollbar {
+  display: none;
+}
 a {
   color: #dd4f24;
 }
@@ -13,6 +16,9 @@ body {
   color: #444;
   font-family: Arial;
   font-size: 16px;
+  -webkit-transition: font-size 1s;
+  -o-transition: font-size 1s;
+  transition: font-size 1s;
 }
 footer {
   background: #dd4f24;
@@ -32,14 +38,22 @@ footer h3 .mejor:before,
 footer h3 .mejor:after {
   content: ' - ';
 }
+form {
+  padding: 0.8em;
+  display: none;
+}
+form label {
+  display: inline-block;
+  width: 50px;
+}
 header {
   background: #444;
   -webkit-box-shadow: 0 5px 0 rgba(0,0,0,0.4);
   box-shadow: 0 5px 0 rgba(0,0,0,0.4);
   color: #fff;
+  overflow: hidden;
   padding: 0.5em;
   position: relative;
-  overflow: hidden;
   z-index: 1;
 }
 header .logo {
@@ -71,8 +85,14 @@ header .titular .publicar {
   text-shadow: 1px 1px 0px #000;
 }
 header .titular .publicar:before {
-  font-family: "iconitos";
   content: '\e908';
+  display: inline-block;
+  font-family: "iconitos";
+  margin: 0 3px 0 0;
+  text-shadow: none;
+}
+header .titular .sizer {
+  text-decoration: none;
 }
 header .titular .titulo {
   font-size: 18px;
@@ -135,6 +155,9 @@ nav .menu {
   padding: 0;
   white-space: nowrap;
 }
+nav .menu::-webkit-scrollbar {
+  display: none;
+}
 nav .menu li {
   display: inline-block;
 }
@@ -176,9 +199,9 @@ nav .menu li a {
   text-decoration: none;
 }
 .posts .post .acciones .datos .estrellita:after {
-  font-family: iconitos;
+  font-family: "iconitos";
   font-size: 1.2em;
-  color: #e0d561;
+  color: #fcb92d;
   content: '\e9d9';
 }
 .posts .post .acciones .votos {
@@ -187,6 +210,12 @@ nav .menu li a {
 .posts .post .acciones .votos .down,
 .posts .post .acciones .votos .up {
   text-decoration: none;
+}
+.posts .post .acciones .votos .down:before,
+.posts .post .acciones .votos .up:before {
+  font-family: "iconitos";
+  font-size: 1.5em;
+  vertical-align: middle;
 }
 .posts .post .acciones .votos .down {
   color: #f00;
@@ -258,5 +287,12 @@ nav .menu li a {
   }
   .posts .post:nth-child(odd) {
     margin-right: 2%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .posts .post {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 100%;
   }
 }

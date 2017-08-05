@@ -13,6 +13,10 @@ naranja = #DD4F24
 	font-weight: normal
 	font-style: normal
 
+html
+	&::-webkit-scrollbar
+		display none
+
 a
 	color naranja
 
@@ -21,6 +25,7 @@ body
 	color gris_oscuro
 	font-family Arial
 	font-size 16px
+	transition font-size 1s
 
 footer
 	background naranja
@@ -28,6 +33,7 @@ footer
 	text-align center
 	width 100%
 	padding 1em 0
+
 	h3
 		font-size 14px
 		font-weight normal
@@ -40,13 +46,20 @@ footer
 			&:after
 				content ' - '
 
+form
+	padding 0.8em
+	display none
+	label
+		display inline-block
+		width 50px
+
 header
 	background gris_oscuro
 	box-shadow 0 5px 0 rgba(0,0,0,0.4)
 	color white
+	overflow hidden
 	padding 0.5em
 	position relative
-	overflow hidden
 	z-index 1
 
 	.logo
@@ -77,9 +90,15 @@ header
 			text-shadow 1px 1px 0px black
 			
 			&:before
-				font-family "iconitos"
 				content '\e908'
-
+				display inline-block
+				font-family "iconitos"
+				margin 0 3px 0 0
+				text-shadow none
+				
+		.sizer
+			text-decoration none
+			
 		.titulo
 			font-size 18px
 			font-weight normal
@@ -139,6 +158,9 @@ nav
 		overflow-x auto
 		padding 0
 		white-space nowrap
+		
+		&::-webkit-scrollbar
+			display none
 
 		li
 			display inline-block
@@ -151,6 +173,7 @@ nav
 
 .posts
 	padding 0.5em
+
 	.post
 		background white
 		border-radius 0 0 0.5em 0.5em
@@ -177,9 +200,9 @@ nav
 				.estrellita
 					text-decoration none
 					&:after
-						font-family iconitos
+						font-family "iconitos"
 						font-size 1.2em
-						color #E0D561
+						color #FCB92D
 						content '\e9d9'
 			.votos
 				float left
@@ -188,6 +211,10 @@ nav
 				.up
 					
 					text-decoration none
+					&:before
+						font-family "iconitos"
+						font-size 1.5em
+						vertical-align middle
 
 				.down
 					color red
@@ -259,3 +286,10 @@ nav
 			&:nth-child(odd)
 				margin-right 2%
 
+
+@media screen and (max-width 767px)
+	.posts
+		.post
+			display inline-block
+			vertical-align top
+			min-width 100%
